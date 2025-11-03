@@ -1,0 +1,152 @@
+/* ====== Değişkenler ====== */
+:root{
+  --teal: #06B6D4;          
+  --teal-700:#0E7490;       
+  --ink:#e6f3f6;           
+  --muted:#a7c6cf;          
+  --card:#10262c;           
+  --border:#1b3a42;         
+  --radius:14px;
+  --shadow: 0 10px 30px rgba(0,0,0,.25);
+  --maxw: 420px;
+}
+
+/* ====== Genel ====== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1300px 700px at 20% -10%, rgba(6,182,212,.45), transparent 60%),
+    radial-gradient(1200px 600px at 110% 0%, rgba(14,116,144,.55), transparent 60%),
+    linear-gradient(160deg, #0a1921 0%, #0b1f25 100%);
+}
+
+/* Sayfa hiyerarşisi */
+main{
+  min-height:100%;
+  display:grid;
+  place-items:center;
+  padding:32px 16px;
+}
+#title{
+  text-align:center;
+  margin:0 0 6px 0;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+#description{
+  margin:0 0 20px 0;
+  text-align:center;
+  color:var(--muted);
+}
+
+/* ====== Form Kartı ====== */
+#survey-form{
+  width:100%;
+  max-width:var(--maxw);
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:var(--shadow);
+}
+
+/* Grid aralık */
+.form-control{margin-bottom:16px}
+
+/* Label’lar */
+label{display:block; font-weight:600; margin-bottom:6px; color:#d7eef3}
+legend{font-weight:700; margin-bottom:8px}
+
+/* Girişler */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea{
+  width:100%;
+  background:#0b1f25;
+  color:var(--ink);
+  border:1.5px solid var(--border);
+  border-radius:10px;
+  padding:12px 14px;
+  outline:none;
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+
+/* Placeholder */
+::placeholder{color:#7fa3ad}
+
+/* Odak görünürlüğü */
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--teal);
+  box-shadow:0 0 0 3px rgba(6,182,212,.25);
+}
+
+
+input:required:invalid{border-color:#7f3b3b}
+input:required:valid{border-color:#2c7a7b}
+
+/* Select görünümü */
+select{
+  appearance:none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(50% - 3px),
+    calc(100% - 14px) calc(50% - 3px);
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat;
+}
+
+/* Radio & Checkbox grupları */
+fieldset{
+  border:1px dashed var(--border);
+  border-radius:10px;
+  padding:12px 12px 6px;
+}
+fieldset label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-weight:500;
+  color:#cfe7ec;
+  margin:6px 0;
+}
+input[type="radio"],
+input[type="checkbox"]{
+  width:18px; height:18px; margin:0;
+  accent-color:var(--teal);
+}
+
+/* Textarea */
+textarea{resize:vertical; min-height:110px}
+
+/* Gönder butonu */
+#submit{
+  width:100%;
+  border:0;
+  border-radius:12px;
+  padding:14px 16px;
+  background:linear-gradient(90deg, var(--teal), var(--teal-700));
+  color:white;
+  font-weight:800;
+  letter-spacing:.4px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(6,182,212,.25);
+  transition:transform .06s ease, box-shadow .15s ease;
+}
+#submit:hover{box-shadow:0 10px 26px rgba(6,182,212,.32)}
+#submit:active{transform:translateY(1px)}
+
+
+.form-control:has(#submit){margin-top:20px}
+@media (max-width:420px){
+  #survey-form{padding:18px}
+}

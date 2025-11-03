@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kayıt Formu</title>
+  <!-- Stil daha sonra eklenecek -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1 id="title">Kayıt Formu</h1>
+    <p id="description">Lütfen aşağıdaki alanları eksiksiz doldurun.</p>
+
+    <form id="survey-form" action="thanks.html" method="get" novalidate target="_blank">
+
+      <!-- İsim -->
+      <div class="form-control">
+        <label id="name-label" for="name">Ad Soyad</label>
+        <input id="name" name="name" type="text" placeholder="Adınız Soyadınız" required />
+      </div>
+
+      <!-- E-posta -->
+      <div class="form-control">
+        <label id="email-label" for="email">E-posta</label>
+        <input id="email" name="email" type="email" placeholder="ornek@mail.com" required />
+      </div>
+
+      <!-- Yaş / Sayı alanı -->
+      <div class="form-control">
+        <label id="number-label" for="number">Yaş</label>
+        <input
+          id="number"
+          name="age"
+          type="number"
+          inputmode="numeric"
+          min="10"
+          max="120"
+          placeholder="18"
+          required
+        />
+      </div>
+
+      <!-- Seçim Kutusu -->
+      <div class="form-control">
+        <label for="dropdown">Cinsiyet Seçin</label>
+        <select id="dropdown" name="gender" required>
+          <option value="" selected disabled>Seçiniz</option>
+          <option value="female">Kadın</option>
+          <option value="male">Erkek</option>
+          <option value="other">Diğer</option>
+          <option value="na">Belirtmek istemiyorum</option>
+        </select>
+      </div>
+
+      <!-- Radyo Grubu -->
+      <fieldset class="form-control">
+        <legend>Üyelik Tipi</legend>
+        <label>
+          <input type="radio" name="plan" value="basic" required />
+          Basic
+        </label>
+        <label>
+          <input type="radio" name="plan" value="pro" />
+          Pro
+        </label>
+      </fieldset>
+
+      <!-- Onay Kutuları -->
+      <fieldset class="form-control">
+        <legend>Tercihler</legend>
+        <label>
+          <input type="checkbox" name="channels" value="instagram" />
+          Instagram
+        </label>
+        <label>
+          <input type="checkbox" name="channels" value="linkedin" />
+          LinkedIn
+        </label>
+        <label>
+          <input type="checkbox" name="tos" value="agree" required />
+          Hizmet Şartlarını kabul ediyorum
+        </label>
+        <label>
+          <input type="checkbox" name="newsletter" value="subscribe" />
+          E-bültene abone olmak istiyorum
+        </label>
+      </fieldset>
+
+      <!-- Metin Alanı -->
+      <div class="form-control">
+        <label for="comments">Öneri / Yorum</label>
+        <textarea id="comments" name="comments" rows="4" placeholder="Görüşlerinizi yazın"></textarea>
+      </div>
+
+      <!-- Gönder -->
+      <div class="form-control">
+        <input id="submit" type="submit" value="Gönder" />
+      </div>
+    </form>
+  </main>
+</body>
+</html>
